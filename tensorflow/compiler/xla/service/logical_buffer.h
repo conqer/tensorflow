@@ -143,7 +143,7 @@ struct HashLogicalBuffer {
   size_t operator()(const LogicalBuffer& b) const {
     std::hash<const HloInstruction*> hasher;
     size_t h = hasher(b.instruction_);
-    for (int i = 0; i < b.index_.size(); i++) {
+    for (size_t i = 0; i < b.index_.size(); i++) {
       h += static_cast<size_t>(b.index_[i] << i);
     }
     return h;

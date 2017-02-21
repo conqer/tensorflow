@@ -122,7 +122,11 @@ string PadAlignmentString(PadAlignment alignment) {
       return "cuDNN padding";
     case PadAlignment::kTensorFlowPadding:
       return "TensorFlow padding";
+    default:
+      LOG(FATAL) << "Unknown padding alignment "
+                 << static_cast<int64>(alignment);
   }
+  return "unknown padding alignment";
 }
 
 string ShortPoolingModeString(PoolingMode mode) {
